@@ -51,3 +51,36 @@ export const getUser = async (email: string): Promise<{userId:number, password:s
         throw new Error("Internal crash")
     }
 }
+
+export const getUserById = async (userId: number): Promise<string> => {
+    try{
+        const dbResult = await db.select({ password: users.password }).from(users).where(eq(users.userId,userId)).limit(1);
+    
+        const password = dbResult[0]?.password;
+        if(!password){
+            throw new ValidationError("No such account exists");
+        }
+        return password;
+    }catch(e){
+        if(e instanceof AppError){
+            throw e
+        }
+        console.log("broke in getUser");
+        throw new Error("Internal crash")
+    }
+}
+
+export const updateUser = async (userId: number , password: string) => {
+    try{
+        const userUpdate = await db.update(users).set({password: password}).where(eq(users.userId, userId)).returning();
+        if(userUpdate.length === 0){
+            throw new Error("Password not changed db issues")
+        }
+    }catch(e){
+        if(e instanceof AppError){
+            throw e
+        }
+        console.log("broke in getUser");
+        throw new Error("Internal crash")
+    }
+} 

@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import { authRouter } from "../auth/routes.js";
+import { authRouter } from "./auth/routes.js";
 import cookieParser from "cookie-parser";
-import { profileRouter } from "../profile/routes.js";
+import { profileRouter } from "./profile/routes.js";
 dotenv.config();
 
 const port = process.env.PORT;

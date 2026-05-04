@@ -1,6 +1,8 @@
 import {Router} from "express";
-import { loginHandler, registerHandler } from "./handler.js";
+import { changePassword, loginHandler, registerHandler, resetAccessToken } from "./handler.js";
 export const authRouter = Router();
 
 authRouter.post('/login', loginHandler);
-authRouter.post('register', registerHandler);
+authRouter.post('/register', registerHandler);
+authRouter.post('/change-password', changePassword);
+authRouter.get('/refresh', resetAccessToken);
