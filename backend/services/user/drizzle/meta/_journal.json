@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1777736996327,
+      "tag": "0000_short_blue_shield",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1777817658582,
+      "tag": "0001_clear_lord_hawal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1777817710101,
+      "tag": "0002_plain_bloodstrike",
+      "breakpoints": true
+    }
+  ]
+}
